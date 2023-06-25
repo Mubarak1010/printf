@@ -10,6 +10,8 @@ int binary_conversion(int value)
 {
 	int mod, count;
 
+	if (value == 0)
+		_putchar(48);
 	while (value != 0)
 	{
 		mod = value % 2;
