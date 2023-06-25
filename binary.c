@@ -13,7 +13,10 @@ int binary_conversion(int value)
 	while (value != 0)
 	{
 		mod = value % 2;
-		_putchar(mod);
+		if (mod == 48)
+			_putchar(48);
+		else if (mod == 49)
+			_putchar(49);
 		value = value / 2;
 		count++;
 	}
