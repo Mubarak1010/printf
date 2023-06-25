@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	int num = 0;
+	int num = 0, value;
 	char c, *s;
 	va_list args;
 	
@@ -39,6 +39,11 @@ int _printf(const char *format, ...)
 			{
 				_putchar('%');
 				num++;
+			}
+			else if (*format == 'b')
+			{
+				value = va_arg(args, int);
+				num = binary_conversion(value);
 			}
 		}
 		else
