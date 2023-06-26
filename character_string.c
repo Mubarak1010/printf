@@ -9,8 +9,8 @@
 
 int _printf(const char *format, ...)
 {
-	int num = 0, value, mod;
-	char c, *s;
+	int num = 0;
+	char *s;
 	va_list args;
 	
 	va_start(args, format);
