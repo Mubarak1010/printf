@@ -9,10 +9,10 @@
 
 int _printf(const char *format, ...)
 {
-	int num = 0, value, mod;
+	int num = 0;
 	char c, *s;
 	va_list args;
-	
+
 	va_start(args, format);
 	while (*format != '\0')
 	{
@@ -31,8 +31,8 @@ int _printf(const char *format, ...)
 				while (*s != '\0')
 				{
 					_putchar(*s);
-					s++;
 					num++;
+					s++;
 				}
 			}
 			else if (*format == '%')
@@ -46,7 +46,7 @@ int _printf(const char *format, ...)
 			_putchar(*format);
 			num++;
 		}
-	format++;
+		format++;
 	}
 	va_end(args);
 	return (num);
