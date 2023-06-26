@@ -9,33 +9,34 @@
 
 int _printf(const char *format, ...)
 {
-	int num = 0;
-	char c, *s;
+	int num = 0, i = 0, j = 0;
+	char c;
+	char *s;
 	va_list args;
 
 	va_start(args, format);
-	while (*format != '\0')
+	while (format[i] != '\0')
 	{
-		if (*format == '%')
+		if (format[i] == '%')
 		{
-			format++;
-			if (*format == 'c')
+			i++;
+			if (format[i] == 'c')
 			{
 				c = (char)va_arg(args, int);
 				_putchar(c);
 				num++;
 			}
-			else if (*format == 's')
+			else if (format[i] == 's')
 			{
 				s = va_arg(args, char*);
-				while (*s != '\0')
+				while (s[j] != '\0')
 				{
-					_putchar(*s);
+					_putchar(s[j]);
 					num++;
-					s++;
+					j++;
 				}
 			}
-			else if (*format == '%')
+			else if (format[i] == '%')
 			{
 				_putchar('%');
 				num++;
@@ -43,10 +44,10 @@ int _printf(const char *format, ...)
 		}
 		else
 		{
-			_putchar(*format);
+			_putchar(format[i]);
 			num++;
 		}
-		format++;
+		i++;
 	}
 	va_end(args);
 	return (num);
