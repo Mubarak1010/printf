@@ -1,13 +1,33 @@
-#include <unistd.h>
+#include <stdarg.h>
 #include "main.h"
 
 /**
- * print - prints numbers one by one
- * @i: the munber
- * Return: number
+ * my_pritn - Handles i and d conversion specifiers
+ * @format: character string
+ * Return: void
  */
 
-int print(int i)
+void my_print(const char *format, ...)
 {
-	return (write(1, &i, 1));
+	int d, i;
+	va_list args;
+	
+	va_start(args, format);
+	while (format[i] != '\0')
+	{
+		if (format[i] == '%' && (format[i + 1] == 'd' || format[i + 1] == 'i'))
+		{
+			d = va_arg(args, int);
+			_putchar(d / 10 + '0');
+			_putchar(d % 10 + '0');
+			i += 2;
+		}
+		else
+		{
+			_putchar(format[i]);
+			i++;
+		}
+	}
+
+	va_end(args);
 }
