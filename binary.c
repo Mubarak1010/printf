@@ -8,19 +8,28 @@
 
 int binary_conversion(int value)
 {
-	int mod, count;
+	int mod, count = 0, i = 0;
+	int array[1024];
 
 	if (value == 0)
 		_putchar(48);
-	while (value != 0)
+	else
 	{
-		mod = value % 2;
-		if (mod == 48)
-			_putchar(48);
-		else if (mod == 49)
-			_putchar(49);
-		value = value / 2;
-		count++;
+		while (value != 0)
+		{
+			mod = value % 10;
+			array[i] = mod;
+			i++;
+			count++;
+			value /= 10;
+		}
+		while (i--)
+		{
+			if (array[i] == 0)
+				_putchar(48);
+			else
+				_putchar(49);
+		}
 	}
 	return (count);
 }
