@@ -9,7 +9,7 @@
 
 int _printf(const char *format, ...)
 {
-	int num = 0, i = 0, mod, j, number[1024];
+	int num = 0, i = 0;
 	char *s, c;
 	va_list args;
 
@@ -39,27 +39,6 @@ int _printf(const char *format, ...)
 			_putchar('%');
 			num++;
 			i += 2;
-		}
-		else if (format[i] == '%' && format[i + 1] == 'd')
-		{
-			value = va_arg(args, int);
-			if (value == 0)
-				_putchar('0');
-			else
-			{
-				while (value != 0)
-				{
-					mod = value % 10;
-					num[j] = mod;
-					j++;
-					value /= 10;
-				}
-				while (j--)
-				{
-					print(num[j]);
-					num++;
-				}
-			}
 		}
 		else
 		{
