@@ -20,7 +20,7 @@ void my_print(const char *format, ...)
 			d = va_arg(args, int);
 			_putchar(d / 10 + '0');
 			_putchar(d % 10 + '0');
-			format += 2;
+			i += 2;
 		}
 		else
 		{
