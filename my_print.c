@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * my_pritn - Handles i and d conversion specifiers
+ * my_print - Handles i and d conversion specifiers
  * @format: character string
  * Return: void
  */
@@ -11,7 +11,7 @@ void my_print(const char *format, ...)
 {
 	int d, i;
 	va_list args;
-	
+
 	va_start(args, format);
 	while (format[i] != '\0')
 	{
@@ -20,7 +20,7 @@ void my_print(const char *format, ...)
 			d = va_arg(args, int);
 			_putchar(d / 10 + '0');
 			_putchar(d % 10 + '0');
-			i += 2;
+			format += 2;
 		}
 		else
 		{
