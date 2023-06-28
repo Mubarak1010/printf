@@ -40,6 +40,11 @@ int _printf(const char *format, ...)
 			num++;
 			i += 2;
 		}
+		else if (format[i] == '%' && format[i + 1] == 'b')
+		{
+			value = va_arg(args, int);
+			num = binary_conversion(value);
+		}
 		else
 		{
 			_putchar(format[i]);
